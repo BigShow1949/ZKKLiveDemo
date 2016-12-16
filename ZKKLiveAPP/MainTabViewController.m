@@ -8,7 +8,7 @@
 
 #import "MainTabViewController.h"
 #import "ViewListViewController.h"
-//#import "CaputureViewController.h"
+#import "CaputureViewController.h"
 #import "CaptureScreenViewController.h"
 @interface MainTabViewController ()
 
@@ -26,34 +26,40 @@
 	ViewListViewController  *viewlist = [[ViewListViewController alloc]init];
 	UINavigationController  *viewlistNav = [[UINavigationController alloc] initWithRootViewController:viewlist];
 	CaptureScreenViewController *caputure = [[CaptureScreenViewController alloc]init];
-
+    
+    CaputureViewController *cap = [[CaputureViewController alloc] init];
 	
 	
 	[UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
 	
 	viewlist.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.98 green:0.4 blue:0.4 alpha:1];
 	caputure.navigationController.navigationBar.barTintColor =  [UIColor colorWithRed:0.98 green:0.4 blue:0.4 alpha:1];
-	
+    cap.navigationController.navigationBar.barTintColor =  [UIColor colorWithRed:0.98 green:0.4 blue:0.4 alpha:1];
+
 	
 	viewlist.navigationController.navigationBar.backIndicatorImage = [UIImage new];
 	caputure.navigationController.navigationBar.backIndicatorImage = [UIImage new];
+    cap.navigationController.navigationBar.backIndicatorImage = [UIImage new];
+
 	
 	viewlist.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18], NSForegroundColorAttributeName:[UIColor whiteColor]};
 	caputure.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18], NSForegroundColorAttributeName:[UIColor whiteColor]};
-	
+    cap.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:18], NSForegroundColorAttributeName:[UIColor whiteColor]};
+
 	
 	
 	viewlistNav.tabBarItem.title = @"直播列单";
 	caputure.tabBarItem.title = @"我要直播";
+    cap.tabBarItem.title = @"我要直播";
+
 	
 	viewlistNav.tabBarItem.image =[UIImage imageNamed:@"liveList"];
 	caputure.tabBarItem.image = [UIImage imageNamed:@"video"];
-	
+    cap.tabBarItem.image = [UIImage imageNamed:@"video2"];
+
 	viewlistNav.navigationController.navigationBar.backgroundColor = [UIColor redColor];
 	
-	self.viewControllers = @[viewlistNav, caputure];
-	
-	
+	self.viewControllers = @[viewlistNav, caputure, cap];
 	
 }
 

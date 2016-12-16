@@ -26,6 +26,12 @@
 
 @implementation CaptureScreenViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor= [UIColor clearColor];
+    
+}
+
 -(void )viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:YES];
 	[UIApplication sharedApplication].statusBarHidden = YES;
@@ -36,11 +42,7 @@
 	[self requestAccessForAudio];
 	
 }
-- (void)viewDidLoad {
-	[super viewDidLoad];
-	self.view.backgroundColor= [UIColor clearColor];
 
-}
 
 -(void)viewWillDisappear:(BOOL)animated{
 	[super viewWillDisappear:YES];
@@ -53,7 +55,7 @@
 	AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
 	switch (status) {
 	case AVAuthorizationStatusNotDetermined:
-		{
+		{ // //第一次使用，则会弹出是否打开权限
 			//许可对话没有出现 则设置请求
 			[AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
 				if(granted){
